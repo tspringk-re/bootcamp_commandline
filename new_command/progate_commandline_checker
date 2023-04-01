@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -eu
+
+program_name=$0
+
+function print_usage() {
+  echo "usage: $program_name test"
+}
+
+[[ $# -lt 1 ]] && print_usage && exit 1
+
+subcommand=$1
+shift 1
+
+case $subcommand in
+  test)
+    echo "ok!"
+    ;;
+  *)
+    echo "no matching subcommand."
+    print_usage
+    exit 1
+    ;;
+esac
